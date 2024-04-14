@@ -1,6 +1,16 @@
 <script lang="ts">
     function assess(){
-        window.location.href="/student/assess"
+        window.location.href="/student/assess";
+    }
+    function bookMeeting(){
+        window.location.href="/student/bookMeeting";
+    }
+    function viewMeeting() {
+        window.location.href="/student/viewMeeting";
+    }
+    function logOut()
+    {
+        window.location.href="/"
     }
 </script>
 <section>
@@ -9,11 +19,11 @@
     <div class="template">
         <button class="assess" on:click={assess}>Student Assessments</button><br>
         <div class="grid">
-            <button class="grid-item">Book Meeting</button>
-            <button class="grid-item">View Meeting</button>
+            <button class="grid-item" on:click={bookMeeting}>Book Meeting</button>
+            <button class="grid-item" on:click={viewMeeting}>View Meeting</button>
         </div>
         <br>
-        <button class="logout">Log Out</button>
+        <button class="logout" on:click={logOut}>Log Out</button>
     </div>
 </section>
 <style>
