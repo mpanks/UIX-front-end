@@ -1,0 +1,17 @@
+:root{
+    --font-body: 'Open Sans';
+}
+button{
+    position: relative;
+    width: 200px;
+    height: 80px;
+    background-color: #C3BEF7;
+    border-radius: 15px;
+    box-shadow: 4px 4px 4px;
+}
+button:hover{
+    width: 210px;
+    height: 90px;
+    box-shadow: 6px 6px 6px;
+    cursor: pointer;
+}
