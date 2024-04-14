@@ -1,4 +1,5 @@
 <script lang="ts">
+    $('textarea')
     function cancel(){
         window.location.href="."
     };
@@ -10,11 +11,11 @@
     <div class="center">
         <div class="confidence">
             <label for='confidence' id='confidencelabel' class="confidenceLabel">Confidence Level</label>
-            <input type="number" id='confidence' class="confidenceInput"/> <br>
+            <textarea id='confidence' class="confidenceInput">1-5</textarea><br>
         </div>
         <div class="notes">
             <p class="noteslabel">Additional Notes</p>
-            <input class="notesinput"/>
+            <textarea class="notesinput"/>
         </div>
         <div class="buttons">
             <button class="grid-item" on:click={cancel}>Cancel</button>

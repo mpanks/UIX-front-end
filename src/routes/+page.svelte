@@ -38,7 +38,7 @@
     <table>
         <tr>
             <td><label for="username">Username</label></td>
-            <td><input type="text" id="username" bind:value={usertype}></td>
+            <td><input type="text" bind:value={usertype} id="username" ></td>
         </tr>
         <tr>
             <td><label for="password">Password</label></td>
@@ -74,7 +74,6 @@ input{
     height: 40px;
     border-radius: 15px;
     box-shadow: 4px 4px 4px;
-
 }
 button{
     margin:0;
