@@ -37,12 +37,12 @@
 <div class="center">
     <table>
         <tr>
-            <td><label for="username">Username</label></td>
-            <td><input type="text" bind:value={usertype} id="username" ></td>
+            <!--<td><label for="username">Username</label></td>-->
+            <td><input placeholder="Username" type="text" bind:value={usertype} id="username" ></td>
         </tr>
         <tr>
-            <td><label for="password">Password</label></td>
-            <td><input type="password" id="password"></td>
+            <!--<td><label for="password">Password</label></td>-->
+            <td><input placeholder="Password" type="password" id="password"></td>
         </tr>
     </table>
     <p class="hidden" id="hidden">Invalid Credentials</p>
@@ -66,8 +66,8 @@ table{
     margin: auto;
     padding: 1%;
     vertical-align: middle;
-    -ms-transform: translateX(-33px);
-    transform: translateX(-33px);
+    /*-ms-transform: translateX(-33px);
+    transform: translateX(-33px);*/
 }
 input{
     width: 200px;
