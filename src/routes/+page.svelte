@@ -1,14 +1,18 @@
 <script lang="ts">
+    import {setCookie} from 'typescript-cookie';
     let usertype:string;
     function login(){
         switch(usertype.toLocaleLowerCase()){
             case "student":
+                setCookie('user', 'student', {path:'/'});
                 window.location.href="/student";
                 break;
             case "supervisor":
+                setCookie('user', 'supervisor', {path:'/'});
                 window.location.href="/supervisor";
                 break;
             case "tutor":
+                setCookie('user', 'tutor');
                 window.location.href="/tutor";
                 break;
             default:

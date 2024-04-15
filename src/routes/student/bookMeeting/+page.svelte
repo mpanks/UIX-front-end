@@ -168,11 +168,12 @@
         justify-content: center;
     }
     .purposelabel,.noteslabel{
+        max-height: 72px;
         margin-top: 43px;
         font-size: 54px;
         background-color: #DDDBFB;
-        width: 830px;
-        padding: 2.7%;
+        width: 876px;
+        padding-top: 2%;
         margin-bottom: 0;
         border-radius: 5px 5px 0px 0px;
     }

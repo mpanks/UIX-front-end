@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="src/routes/style.css">
 
     <div class="template">
-        <button class="assess" on:click={assess}>Student Assessments</button><br>
+        <button class="assess" on:click={assess}>Self Assess</button><br>
         <div class="grid">
             <button class="grid-item" on:click={bookMeeting}>Book Meeting</button>
             <button class="grid-item" on:click={viewMeeting}>View Meeting</button>
