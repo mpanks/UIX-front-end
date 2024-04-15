@@ -20,7 +20,6 @@
         if (!time.value) message+= "Please input time for meeting.<br>";
         if (!purpose.value) message+= "Please input time for meeting.<br>";
 
-
         let modal = document.getElementById("modal");
         let content = document.getElementById("modalText") as HTMLElement;
         if(content){

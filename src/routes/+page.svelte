@@ -66,8 +66,6 @@ table{
     margin: auto;
     padding: 1%;
     vertical-align: middle;
-    /*-ms-transform: translateX(-33px);
-    transform: translateX(-33px);*/
 }
 input{
     width: 200px;
