@@ -1,3 +1,43 @@
+<script lang="ts">
+    let submitted = false;
+    function cancel(){
+        window.location.href=".";
+    }
+    function close(){
+        let modal = document.getElementById("modal");
+        if(modal) modal.style.display = "none";  
+        if(submitted) window.location.href=".";    
+    }
+    function submit(){
+        let name = document.getElementById("supervisorname") as HTMLInputElement;
+        let date = document.getElementById("meetingdate") as HTMLInputElement;
+        let time = document.getElementById("meetingtime") as HTMLInputElement;
+        let purpose = document.getElementById("meetingpurpose") as HTMLInputElement;
+        let message:string = "";
+
+        if(!name.value) {message+=("Please input supervisor name.<br>");}
+        if (!date.value) {message+= "Please input date for meeting.<br>";}
+        if (!time.value) message+= "Please input time for meeting.<br>";
+        if (!purpose.value) message+= "Please input time for meeting.<br>";
+
+
+        let modal = document.getElementById("modal");
+        let content = document.getElementById("modalText") as HTMLElement;
+        if(content){
+            if(message==""){
+                content.textContent="Meeting request submitted.";
+                content.style.setProperty('color','green');
+                submitted=true;
+            }
+            else{
+                content.innerHTML = message;
+                content.style.setProperty('color','red');
+                submitted=false;
+            }
+        } 
+        if(modal) modal.style.display = "block";
+    }
+</script>
 <section>
     <head>
         <link rel="stylesheet" href="/src/routes/style.css">
@@ -27,12 +67,48 @@
             <textarea id="additionalnotes" class="notesinput"/>
         </div>
         <div class="buttons">
-            <button class="cancel">Cancel</button>
-            <button class="submit">Submit</button>
+            <button class="cancel" on:click={cancel}>Cancel</button>
+            <button class="submit" on:click={submit}>Submit</button>
+        </div>
+    </div>
+    <div class="modal" id="modal" on:click={close}>
+        <div class="modal-content">
+            <span class="close" >&times;</span>
+            <p id="modalText"></p>
         </div>
     </div>
 </section>
 <style>
+     .modal{
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+    .modal-content{
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        font-size: larger;
+    }
+    .close{
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .close:hover, .close:focus{
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
     .center{
         display:flex;
         flex-direction: column;
@@ -50,7 +126,7 @@
         border-radius: 5px 0px 0px 5px; 
     }
     .supervisorinput{
-        /*Edit width...I'm lazy*/
+        font-family: "Open Sans";
         text-align: center;
         width:40%;
         background-color: #C3BEF7;
@@ -59,13 +135,10 @@
         border-radius: 0px 5px 5px 0px;
     }
     .datetime{
-        margin-top: 50px;
+        margin-top: 2%;
         width: 100%;
-        max-height: 62px;
         display:flex;
         flex-direction: row;
-        margin-left: auto;
-        margin-right: auto;
         justify-content: center;
         gap: 10%;
     }
@@ -74,16 +147,19 @@
         background-color: #C3BEF7;
         text-align: center;
         font-size: 40px;
+        border: 0px;
+        border-radius: 0px 5px 5px 0px;
     }
     .grid-item{
         display:flex;
         flex-direction: row;
+        justify-content: center;
     }
     .datelabel, .timelabel{
-        max-height: 71px;
+        text-align: center;
+        padding: 2%;
         font-size: 54px;
         background-color: #DDDBFB;
-        padding: 3%;
         border-radius: 5px 0px 0px 5px; 
     }
     .details{
@@ -91,7 +167,6 @@
         flex-direction: column;
         text-align: center;
         justify-content: center;
-        align-items: center;
     }
     .purposelabel,.noteslabel{
         margin-top: 43px;
@@ -100,7 +175,6 @@
         width: 830px;
         padding: 2.7%;
         margin-bottom: 0;
-        text-align: center;
         border-radius: 5px 5px 0px 0px;
     }
     .purposeinput, .notesinput{
@@ -110,6 +184,7 @@
         border: 0px;
         border-radius: 0px 0px 5px 5px;
         margin-top: 0px;
+        resize: none;
     }
     .purposeinput{
         height: 85px;
@@ -130,5 +205,9 @@
         width: 343px;
         height: 133px;
         font-size: 64px;
+    }
+    button:hover{
+        width: 347px;
+        height: 137px;
     }
 </style>
