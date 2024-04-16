@@ -1,6 +1,163 @@
+<script>
+    import {getCookie} from 'typescript-cookie';
+</script>
 <section>
     <head>
         <link rel="stylesheet" href="src/routes/style.css"/>
     </head>
-    
+    <div class="center">
+        <div class="name">
+            <label for="nameinput" id="namelabel" class="namelabel">Student Name: </label>
+            <input type="text" class="nameinput" id="nameinput" placeholder="John Smith"/>
+        </div>
+        <div class="datetime">
+            <div class="date">
+                <label for="dateinput" class="datelabel">Date: </label>
+                <input type="date" name="dateinput" id="dateinput" class="dateinput">
+            </div>
+            <div class="time">
+                <label for="timeinput" class="timelabel">Time: </label>
+                <input type="time" name="timeinput" id="timeinput" class="timeinput">
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="cancel">Cancel</button>
+            <button class="submit">Submit</button>
+        </div>
+        <div class="details">
+            <div class="confidence">
+                <label for="confidenceinput" class="confidencelabel">Confidence Level</label>
+                <textarea name="confidenceinput" id="confidenceinput" class="confidenceinput" placeholder="1-5"/>
+            </div>
+            <div class="notes">
+                <label for="notesinput" class="noteslabel">Additional Notes</label>
+                <textarea name="notesinput" id="notesinput" class="notesinput"></textarea>
+            </div>
+        </div>
+    </div>
 </section>
+<style>
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.name, .datetime, .date, .time, .buttons,.confidence{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top:1%;
+    margin-bottom: auto;
+}
+.name,.datetime{
+    margin-bottom:0px;
+    max-height: 80px
+}
+.name{
+    margin-top:auto;
+}
+.namelabel{
+    margin-bottom: auto;
+    text-align: center;
+    line-height: auto;
+    font-size: 44px;
+    padding:2%;
+    background-color: #DDDBFB;
+    border-radius: 5px 0px 0px 5px; 
+}
+.nameinput{
+    margin-bottom: auto;
+    font-family: "Open Sans";
+    text-align: center;
+    width:40%;
+    padding:2%;
+    background-color: #C3BEF7;
+    font-size: 44px;
+    border: 0px;
+    border-radius: 0px 5px 5px 0px;
+}
+.datetime, .buttons{
+    width: 100%;
+    gap:10%;
+}
+.datelabel, .timelabel{
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    padding: 2%;
+    font-size: 44px;
+    background-color: #DDDBFB;
+    border-radius: 5px 0px 0px 5px; 
+}
+.dateinput, .timeinput{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 291px;
+    padding:2%;
+    background-color: #C3BEF7;
+    text-align: center;
+    font-size: 44px;
+    border: 0px;
+    border-radius: 0px 5px 5px 0px;
+}
+button{
+    width: 343px;
+    height: 133px;
+    font-size: 64px;
+    margin-top: 0.5%;
+}
+button:hover{
+    width: 347px;
+    height: 137px;
+}
+.confidencelabel{
+    max-height: 82px;
+    margin-top: 1%;
+    font-size: 54px;
+    background-color: #DDDBFB;
+    text-align: center;
+    justify-self: center;
+    padding:1%;
+    border-radius: 5px 0px 0px 5px; 
+}
+.confidenceinput{
+    max-height: 82px;
+    text-align: center;
+    font-family: "Open Sans";
+    margin-top:1%;
+    margin-bottom: auto;
+    width:15%;
+    background-color: #C3BEF7;
+    font-size: 54px;
+    border: 0px;
+    border-radius: 0px 5px 5px 0px;
+}
+.notes{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.noteslabel{
+    font-size: 54px;
+    background-color: #DDDBFB;
+    width: 830px;
+    padding: 1.25% 2.7%;
+    margin-top:1%;
+    margin-bottom: 0;
+    text-align: center;
+    border-radius: 5px 5px 0px 0px;
+}
+.notesinput{
+    margin-top: 0;
+    font-size: 32px;
+    width: 830px;
+    height: 443px;
+    padding: 1.25% 2.7%;
+    background-color: #C3BEF7;
+    border: 0px;
+    border-radius: 0px 0px 5px 5px;
+}
+</style>
