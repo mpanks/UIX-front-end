@@ -1,21 +1,11 @@
 <script lang="ts">
     //I hope the marking's going well, John
-    let meetings: meeting[]= [
-          {"name": "JOHN DIXON", "datetime":new Date("11/11/2025, 11:30"), "purpose":"Meeting", "additional":""},
-          {"name": "EMMA WATSON", "datetime":new Date("12/11/2025,11:30"), "purpose":"Catchup", "additional":"Pls help"},
-          {"name": "ALAN TURING", "datetime":new Date("22/07/2024, 12:00"), "purpose":"Enigma", "additional":"FQGAHW"}, //https://www.101computing.net/enigma-machine-emulator  
-        ]
+    import {meetings, type meeting} from '$lib';
 
     function close(){
         let modal = document.getElementById("modal");
         if(modal) modal.style.display = "none";
     }
-    interface meeting{
-        name: string,
-        datetime:Date,
-        purpose:string,
-        additional:string,
-    };
     function cancel(){
         window.location.href=".";
     };

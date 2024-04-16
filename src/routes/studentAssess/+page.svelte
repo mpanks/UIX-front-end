@@ -1,5 +1,18 @@
-<script>
+<script lang="ts">
     import {getCookie} from 'typescript-cookie';
+    interface meeting{
+        
+    }
+    function close(){
+        let modal = document.getElementById("modal");
+        if(modal) modal.style.display = "none";  
+    }
+    function cancel(){
+        window.location.href=".";
+    }
+    function submit(){
+
+    }
 </script>
 <section>
     <head>
@@ -21,8 +34,8 @@
             </div>
         </div>
         <div class="buttons">
-            <button class="cancel">Cancel</button>
-            <button class="submit">Submit</button>
+            <button class="cancel" on:click={cancel}>Cancel</button>
+            <button class="submit" on:click={submit}>Submit</button>
         </div>
         <div class="details">
             <div class="confidence">
@@ -35,8 +48,43 @@
             </div>
         </div>
     </div>
+    <div class="modal" id="modal" on:click={close}>
+        <div class="modal-content">
+            <span class="close" >&times;</span>
+            <p id="modalText"></p>
+        </div>
+    </div>
 </section>
 <style>
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+.modal-content{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+.close{
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover, .close:focus{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
 .center{
     display: flex;
     flex-direction: column;
