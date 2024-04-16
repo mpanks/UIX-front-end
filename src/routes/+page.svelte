@@ -9,11 +9,11 @@
                 break;
             case "supervisor":
                 setCookie('user', 'supervisor', {path:'/'});
-                window.location.href="/supervisor";
+                window.location.href="/staff";
                 break;
             case "tutor":
                 setCookie('user', 'tutor');
-                window.location.href="/tutor";
+                window.location.href="/staff";
                 break;
             default:
                 let test:HTMLElement | null =document.getElementById("hidden");
