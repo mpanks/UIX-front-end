@@ -1,17 +1,58 @@
 <script lang="ts">
     import {getCookie} from 'typescript-cookie';
-    interface meeting{
-        
-    }
+    import {reports, type report} from '$lib';
+
     function close(){
         let modal = document.getElementById("modal");
         if(modal) modal.style.display = "none";  
     }
     function cancel(){
-        window.location.href=".";
+        let user = getCookie("user");
+        switch(user){
+            case"student":
+                window.location.href="/student";
+                return;
+            case"supervisor":
+            case"tutor":
+                window.location.href="/staff";
+                return;
+            default:
+                window.location.href="/";
+                return;
+        }
     }
-    function submit(){
+    function search(){
+        let name = document.getElementById("nameinput") as HTMLInputElement;
+        let exists = false;
+        //Should search REPORTS - not a big dif ngl
+        reports.forEach(report => {
+            if(report.name.includes(name.value.toUpperCase())){
+                //meeting exists
+                output(report);
+                exists=true;
+            }
+        });
+        if(!exists){
+            //100% not copied from /student/viewMeeting
+            let modal = document.getElementById("modal");
+            let content = document.getElementById("modalText") as HTMLElement;
+            content.textContent="Cannot find meeting with information provided, please try agian";
+            content.style.setProperty('color', 'red');
+            if(modal) modal.style.display = "block";
+        }
+    }
+    function output(result: report){
+        let dateinput = document.getElementById("dateinput") as HTMLInputElement;
+        let timeinput = document.getElementById("timeinput") as HTMLInputElement;
+        let studentname = document.getElementById("nameinput") as HTMLInputElement;
+        let confidence = document.getElementById("confidenceinput") as HTMLInputElement;
+        let notes = document.getElementById("notesinput") as HTMLInputElement;
 
+        studentname.value = result.name;
+        dateinput.valueAsDate = result.datetime;
+        timeinput.valueAsDate = result.datetime;
+        confidence.value = result.confidence.toString();
+        notes.value = result.additional;
     }
 </script>
 <section>
@@ -26,16 +67,16 @@
         <div class="datetime">
             <div class="date">
                 <label for="dateinput" class="datelabel">Date: </label>
-                <input type="date" name="dateinput" id="dateinput" class="dateinput">
+                <input type="date" id="dateinput" class="dateinput">
             </div>
             <div class="time">
                 <label for="timeinput" class="timelabel">Time: </label>
-                <input type="time" name="timeinput" id="timeinput" class="timeinput">
+                <input type="time" id="timeinput" class="timeinput">
             </div>
         </div>
         <div class="buttons">
             <button class="cancel" on:click={cancel}>Cancel</button>
-            <button class="submit" on:click={submit}>Submit</button>
+            <button class="submit" on:click={search}>Search</button>
         </div>
         <div class="details">
             <div class="confidence">
@@ -207,5 +248,8 @@ button:hover{
     background-color: #C3BEF7;
     border: 0px;
     border-radius: 0px 0px 5px 5px;
+}
+textarea{
+    resize: none;
 }
 </style>

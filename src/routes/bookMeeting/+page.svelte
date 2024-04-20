@@ -38,7 +38,18 @@
         }
     };
     function cancel(){
-        window.location.href=".";
+        switch(user){
+            case"student":
+                window.location.href="/student";
+                return;
+            case"supervisor":
+            case"tutor":
+                window.location.href="/staff";
+                return;
+            default:
+                window.location.href="/";
+                return;
+        }
     }
     function close(){
         let modal = document.getElementById("modal");

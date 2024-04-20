@@ -1,8 +1,7 @@
 <script lang="ts">
     let submitted = false;
-    import {getCookie} from 'typescript-cookie';
     function cancel(){
-        window.location.href="/student";
+        window.location.href=".";
     }
     function close(){
         let modal = document.getElementById("modal");
@@ -46,7 +45,7 @@
     <div class="center">
         <div class="supervisor">
             <!--Supervisors information-->
-            <label for="supervisorname" id="namelabel" class="supervisorlabel">Supervisor Name: </label>
+            <label for="supervisorname" id="namelabel" class="supervisorlabel">Student Name: </label>
             <input type="text" placeholder="John Smith" id="supervisorname" class="supervisorinput"/>
         </div>
         <div class="datetime">
@@ -118,21 +117,25 @@
     .supervisor{
         display:flex;
         justify-content: center;
+        width: 60%;
+        text-align: center;
     }
     .supervisorlabel{
         font-size: 54px;
         background-color: #DDDBFB;
         padding: 3%;
         border-radius: 5px 0px 0px 5px; 
+        width: 50%
     }
     .supervisorinput{
         font-family: "Open Sans";
         text-align: center;
-        width:40%;
+        width:50%;
         background-color: #C3BEF7;
         font-size: 54px;
         border: 0px;
         border-radius: 0px 5px 5px 0px;
+
     }
     .datetime{
         margin-top: 2%;
@@ -167,20 +170,18 @@
         flex-direction: column;
         text-align: center;
         justify-content: center;
+        width: 70%;
     }
     .purposelabel,.noteslabel{
-        max-height: 72px;
         margin-top: 43px;
         font-size: 54px;
         background-color: #DDDBFB;
-        width: 876px;
-        padding-top: 2%;
+        width: 100%;
         margin-bottom: 0;
         border-radius: 5px 5px 0px 0px;
     }
     .purposeinput, .notesinput{
         font-size: 32px;
-        width: 872px;
         background-color: #C3BEF7;
         border: 0px;
         border-radius: 0px 0px 5px 5px;

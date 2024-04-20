@@ -1,5 +1,7 @@
 <script lang="ts">
-    import {setCookie} from 'typescript-cookie';
+	import { onMount } from 'svelte';
+    import { setCookie} from 'typescript-cookie';
+
     function assess(){
         window.location.href="/studentAssess";
     }

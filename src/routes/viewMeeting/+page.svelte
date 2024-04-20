@@ -1,13 +1,45 @@
 <script lang="ts">
     //I hope the marking's going well, John
     import {meetings, type meeting} from '$lib';
+    import {getCookie} from 'typescript-cookie'
+    import{onMount} from 'svelte'
 
+    onMount(()=>{
+        let name = document.getElementById("namelabel");
+        let text:string = "";
+        let user = getCookie("user");
+        switch(user){
+            case "student":
+                text = "Supervisor Name:"
+                break;
+            case "supervisor":
+                case"tutor":
+                text = "Student Name:"
+                break;
+            default:
+                text = "Name:"
+                break;
+        }
+        if(name) name.textContent = text;
+    });
     function close(){
         let modal = document.getElementById("modal");
         if(modal) modal.style.display = "none";
     }
     function cancel(){
-        window.location.href=".";
+        let user = getCookie("user");
+        switch(user){
+            case "student":
+                window.location.href="./student";
+                return;
+            case"supervisor":
+            case"tutor":
+                window.location.href="./staff";
+                return;
+            default:
+                window.location.href = "/";
+                return;
+        }
     };
     function search(){
         let nameinput = document.getElementById("nameinput") as HTMLInputElement;
@@ -45,46 +77,49 @@
     }
 </script>
 <section>
-    <head>
-        <link rel="stylesheet" href="/src/routes/style.css"/>
-    </head>
-    <div class="center">
-        <div class="supervisor">
-            <label for="supervisorname" id="namelabel" class="namelabel">Supervisor Name: </label>
-            <input type="text" id="nameinput" class="supervisorname" placeholder="John Smith"/>
-        </div>
-        <div class="buttons">
-            <button class="cancel" on:click={cancel}>Return</button>
-            <button class="search" on:click={search}>Search</button>
-        </div>
-        <div class="datetime">
-            <div class="grid-item">
-                <label for="dateinput" id="datelabel" class="datelabel">Date: </label>
-                <input type="date" id="dateinput" class="dateinput"/>
+    <section>
+        <head>
+            <link rel="stylesheet" href="/src/routes/style.css">
+            <meta name="viewport" content="width=device-width, initial-scale-1">
+        </head>
+        <div class="center">
+            <div class="supervisor">
+                <!--Supervisors information-->
+                <label for="supervisorname" id="namelabel" class="supervisorlabel">Student Name: </label>
+                <input type="text" placeholder="John Smith" id="supervisorname" class="supervisorinput"/>
             </div>
-            <div class="grid-item">
-                <label for="time" id="timelabel" class="timelabel">Time:</label>
-                <input type="time" id="timeinput" class="timeinput"/>
+            <div class="datetime">
+                <!--Date & Time-->
+                <div class="grid-item">
+                    <label for="meetingdate" id="datelabel" class="datelabel">Date: </label>
+                    <input type="date" placeholder="DD/MM/YYYY" id="meetingdate" class="dateinput"/>
+                </div>
+                <div class="grid-item">
+                    <label for="meetingtime" id="timelabel" class="timelabel">Time: </label>
+                    <input type="time" placeholder="HH:MM" id="meetingtime" class="timeinput"/>
+                </div>
+            </div>
+            <div class="details">
+                <label for="meetingpurpose" id="purposelabel" class="purposelabel">Purpose of Meeting</label>
+                <textarea id="meetingpurpose" class="purposeinput"/><br>
+                <label for="addintionalnotes" id="noteslabel" class="noteslabel">Additional Notes</label>
+                <textarea id="additionalnotes" class="notesinput"/>
+            </div>
+            <div class="buttons">
+                <button class="cancel" on:click={cancel}>Cancel</button>
+                <button class="submit" on:click={search}>Submit</button>
             </div>
         </div>
-        <div class="purpose">
-            <label for="meetingpurpose" id="purposelabel" class="purposelabel">Purpose of Meeting</label>
-            <textarea id="meetingpurpose" class="purposeinput"/>
+        <div class="modal" id="modal" on:click={close}>
+            <div class="modal-content">
+                <span class="close" >&times;</span>
+                <p id="modalText"></p>
+            </div>
         </div>
-        <div class="notes">
-            <label for="notes" id="noteslabel" class="noteslabel">Additional Notes</label>
-            <textarea id="notes" class="notesinput"/>
-        </div>
-    </div>
-    <div class="modal" id="modal" on:click={close}>
-        <div class="modal-content">
-            <span class="close" >&times;</span>
-            <p id="modalText"></p>
-        </div>
-    </div>
+    </section>
 </section>
 <style>
-    .modal{
+     .modal{
         display: none;
         position: fixed;
         z-index: 1;
@@ -115,66 +150,41 @@
         cursor: pointer;
     }
     .center{
-        width: 100%;
-        display: flex;
+        display:flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
     .supervisor{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+        display:flex;
         justify-content: center;
+        width: 60%;
+        text-align: center;
     }
-    .namelabel{
+    .supervisorlabel{
         font-size: 54px;
         background-color: #DDDBFB;
-        
+        padding: 3%;
         border-radius: 5px 0px 0px 5px; 
+        width: 50%
     }
-    .supervisorname{
+    .supervisorinput{
         font-family: "Open Sans";
         text-align: center;
-        width:40%;
+        width:50%;
         background-color: #C3BEF7;
         font-size: 54px;
         border: 0px;
         border-radius: 0px 5px 5px 0px;
-    }
-    .buttons{
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 10%;
-        margin-top: 3%;
-    }
-    button{
-        width: 343px;
-        height: 133px;
-        font-size: 64px;
-    }
-    button:hover{
-        width: 347px;
-        height: 137px;
+
     }
     .datetime{
-        margin-top: 3%;
-        width: 100%;
-        display: flex;
+        margin-top: 2%;
+        width: 60%;
+        display:flex;
         flex-direction: row;
         justify-content: center;
-        align-items: center;
         gap: 10%;
-    }
-    .datelabel, .timelabel{
-        text-align: center;
-        padding: 2%;
-        font-size: 54px;
-        background-color: #DDDBFB;
-        border-radius: 5px 0px 0px 5px; 
     }
     .dateinput, .timeinput{
         width: 291px;
@@ -189,24 +199,30 @@
         flex-direction: row;
         justify-content: center;
     }
-    .purpose, .notes{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    .datelabel, .timelabel{
         text-align: center;
+        padding: 2%;
+        font-size: 54px;
+        background-color: #DDDBFB;
+        border-radius: 5px 0px 0px 5px; 
+    }
+    .details{
+        display:flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        width: 60%;
     }
     .purposelabel,.noteslabel{
         margin-top: 43px;
         font-size: 54px;
         background-color: #DDDBFB;
-        width: 830px;
-        padding: 2.7%;
+        width: 100%;
         margin-bottom: 0;
         border-radius: 5px 5px 0px 0px;
     }
     .purposeinput, .notesinput{
         font-size: 32px;
-        width: 872px;
         background-color: #C3BEF7;
         border: 0px;
         border-radius: 0px 0px 5px 5px;
@@ -218,5 +234,23 @@
     }
     .notesinput{
         height: 157px;
+    }
+    .buttons{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 25%;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    }
+    button{
+        width: 343px;
+        height: 133px;
+        font-size: 64px;
+    }
+    button:hover{
+        width: 347px;
+        height: 137px;
     }
 </style>

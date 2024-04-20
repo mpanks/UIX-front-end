@@ -6,7 +6,7 @@
         window.location.href="/student/bookMeeting";
     }
     function viewMeeting() {
-        window.location.href="/student/viewMeeting";
+        window.location.href="./viewMeeting";
     }
     function logOut()
     {
