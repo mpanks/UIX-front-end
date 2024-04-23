@@ -28,30 +28,32 @@
 </script>
 <section>
     <head>
-    <link rel="stylesheet" href="/src/routes/style.css">
     <meta name="viewport" content="width=device-width, initial-scale-1">
     </head>
-    <div class="center">
-        <div class="confidence">
-            <label for='confidence' id='confidencelabel' class="confidenceLabel">Confidence Level</label>
-            <input placeholder="1-5" type="number" id='confidence' class="confidenceInput"><br>
+<main>
+        <div class="center">
+            <div class="confidence">
+                <label for='confidence' id='confidencelabel' class="confidenceLabel">Confidence Level</label>
+                <input placeholder="1-5" type="number" id='confidence' class="confidenceInput"><br>
+            </div>
+            <div class="notes">
+                <p class="noteslabel">Additional Notes</p>
+                <textarea class="notesinput"/>
+            </div>
+            <div class="buttons">
+                <button class="grid-item" on:click={cancel}>Cancel</button>
+                <button class="grid-item" on:click={submit}>Submit</button>
+            </div>
         </div>
-        <div class="notes">
-            <p class="noteslabel">Additional Notes</p>
-            <textarea class="notesinput"/>
-        </div>
-        <div class="buttons">
-            <button class="grid-item" on:click={cancel}>Cancel</button>
-            <button class="grid-item" on:click={submit}>Submit</button>
+
+    <div class="modal" id="modal" on:click={close}>
+        <div class="modal-content">
+            <span class="close" >&times;</span>
+            <p id="modalText"></p>
         </div>
     </div>
+</main>
 </section>
-<div class="modal" id="modal" on:click={close}>
-    <div class="modal-content">
-        <span class="close" >&times;</span>
-        <p id="modalText"></p>
-    </div>
-</div>
 <style>
     .modal{
         display: none;

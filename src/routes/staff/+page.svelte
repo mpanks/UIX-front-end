@@ -17,17 +17,19 @@
     }
 </script>
 <section>
-    <link rel="stylesheet" href="src/routes/style.css">
-
-    <div class="template">
-        <button class="assess" on:click={assess}>Student Assessments</button><br>
-        <div class="grid">
-            <button class="grid-item" on:click={bookMeeting}>Book Meeting</button>
-            <button class="grid-item" on:click={viewMeeting}>View Meeting</button>
+    <main>
+        <div class="center">
+            <div class="template">
+                <button class="assess" on:click={assess}>Student Assessments</button><br>
+                <div class="grid">
+                    <button class="grid-item" on:click={bookMeeting}>Book Meeting</button>
+                    <button class="grid-item" on:click={viewMeeting}>View Meeting</button>
+                </div>
+                <br>
+                <button class="logout" on:click={logOut}>Log Out</button>
+            </div>
         </div>
-        <br>
-        <button class="logout" on:click={logOut}>Log Out</button>
-    </div>
+    </main>
 </section>
 <style>
 .grid{

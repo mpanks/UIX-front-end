@@ -39,8 +39,8 @@
     }
 </script>
 <section>
+    <main>
     <head>
-        <link rel="stylesheet" href="/src/routes/style.css">
         <meta name="viewport" content="width=device-width, initial-scale-1">
     </head>
     <div class="center">
@@ -77,6 +77,7 @@
             <p id="modalText"></p>
         </div>
     </div>
+    </main>
 </section>
 <style>
      .modal{

@@ -56,6 +56,9 @@
     }
 </script>
 <section>
+    <main>
+
+    
     <head>
         <link rel="stylesheet" href="src/routes/style.css"/>
     </head>
@@ -95,6 +98,7 @@
             <p id="modalText"></p>
         </div>
     </div>
+    </main>
 </section>
 <style>
 .modal{

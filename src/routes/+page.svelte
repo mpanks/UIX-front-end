@@ -36,9 +36,11 @@
 </div>
 -->
 <head>
-    <link rel="stylesheet" href="src/routes/style.css">
+    
 </head>
+<main>
 <div class="center">
+    <div class="padding-20">
     <table>
         <tr>
             <!--<td><label for="username">Username</label></td>-->
@@ -53,14 +55,14 @@
     <div class="formbutton">
         <button on:click={login}>LogIn</button>
     </div>
+    </div>
 </div>
+</main>
 
-
-<style src="style.css">
+<style>
 .center{
     position:relative;
     margin: auto;
-    padding: 20%;
     justify-content: center;
 }
 .hidden{
@@ -88,6 +90,10 @@ button{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.padding-20 {
+    padding: 20%;
 }
 
 </style>

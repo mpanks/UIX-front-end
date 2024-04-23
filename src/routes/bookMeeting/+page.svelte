@@ -88,49 +88,51 @@
 </script>
 
 <section>
-    <head>
-        <link rel="stylesheet" href="src/routes/style.css"/>
-    </head>
-    <div class="center">
-        <div class="row1">
-            <div class="toggle">
-                <button id="left" class="left" on:click={toggle}>Student</button>
-                <button id="right" class="right" on:click={toggle}></button>
+    <main>
+        <head>
+            <link rel="stylesheet" href="src/routes/style.css"/>
+        </head>
+        <div class="center">
+            <div class="row1">
+                <div class="toggle">
+                    <button id="left" class="left" on:click={toggle}>Student</button>
+                    <button id="right" class="right" on:click={toggle}></button>
+                </div>
+                <div class="name">
+                    <label for="nameinp" id="namelabel" class="namelabel">Name: </label>
+                    <input type="text" id="nameinp" class="nameinp" placeholder="John Smith"/>
+                </div>
             </div>
-            <div class="name">
-                <label for="nameinp" id="namelabel" class="namelabel">Name: </label>
-                <input type="text" id="nameinp" class="nameinp" placeholder="John Smith"/>
+            <div class="datetime">
+                <div class="grid-item">
+                    <label for="dateinp" id="datelabel" class="datelabel">Date: </label>
+                    <input type="date" id="dateinp" class="dateinput"/>
+                </div>
+                <div class="grid-item">
+                    <label for="timeinp" id="timelabel" class="timelabel">Time: </label>
+                    <input type="time" id="timeinp" class="timeinput"/>
+                </div>
+            </div>
+            <div class="purpose">
+                <label for="purposeinp" id="purposelabel" class="purposelabel">Purpose of Meeting</label>
+                <textarea id="purposeinp" class="purposeinput"/>
+            </div>
+            <div class="additional">
+                <label for="additionalinp" id="additionallabel" class="additionallabel">Additional Notes</label>
+                <textarea id="additionalinp" class="additionalinput"/>
+            </div>
+            <div class="buttons">
+                <button class="cancel" on:click={cancel}>Cancel</button>
+                <button class="submit" on:click={submit}>Submit</button>
             </div>
         </div>
-        <div class="datetime">
-            <div class="grid-item">
-                <label for="dateinp" id="datelabel" class="datelabel">Date: </label>
-                <input type="date" id="dateinp" class="dateinput"/>
-            </div>
-            <div class="grid-item">
-                <label for="timeinp" id="timelabel" class="timelabel">Time: </label>
-                <input type="time" id="timeinp" class="timeinput"/>
+        <div class="modal" id="modal" on:click={close}>
+            <div class="modal-content">
+                <span class="close" >&times;</span>
+                <p id="modalText"></p>
             </div>
         </div>
-        <div class="purpose">
-            <label for="purposeinp" id="purposelabel" class="purposelabel">Purpose of Meeting</label>
-            <textarea id="purposeinp" class="purposeinput"/>
-        </div>
-        <div class="additional">
-            <label for="additionalinp" id="additionallabel" class="additionallabel">Additional Notes</label>
-            <textarea id="additionalinp" class="additionalinput"/>
-        </div>
-        <div class="buttons">
-            <button class="cancel" on:click={cancel}>Cancel</button>
-            <button class="submit" on:click={submit}>Submit</button>
-        </div>
-    </div>
-    <div class="modal" id="modal" on:click={close}>
-        <div class="modal-content">
-            <span class="close" >&times;</span>
-            <p id="modalText"></p>
-        </div>
-    </div>
+    </main>
 </section>
 <style>
 .modal{
