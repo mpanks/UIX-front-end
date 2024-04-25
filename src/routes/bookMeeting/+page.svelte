@@ -54,7 +54,7 @@
     function close(){
         let modal = document.getElementById("modal");
         if(modal) modal.style.display = "none";  
-        if(submitted) window.location.href=".";    
+        if(submitted) window.location.href="./staff";    
     }
     function submit(){
         //TODO: Modify to check date is in future - maybe
@@ -75,6 +75,7 @@
             if(content) {
                 content.textContent = "Meeting requested.";
                 content.style.setProperty('color','green');
+                submitted = true;
             }
         }
         else{
@@ -90,7 +91,6 @@
 <section>
     <main>
         <head>
-            <link rel="stylesheet" href="src/routes/style.css"/>
         </head>
         <div class="center">
             <div class="row1">

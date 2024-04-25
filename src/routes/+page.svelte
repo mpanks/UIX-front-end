@@ -39,26 +39,28 @@
     
 </head>
 <main>
-<div class="center">
-    <div class="padding-20">
-    <table>
-        <tr>
-            <!--<td><label for="username">Username</label></td>-->
-            <td><input placeholder="Username" type="text" bind:value={usertype} id="username" ></td>
-        </tr>
-        <tr>
-            <!--<td><label for="password">Password</label></td>-->
-            <td><input placeholder="Password" type="password" id="password"></td>
-        </tr>
-    </table>
-    <p class="hidden" id="hidden">Invalid Credentials</p>
-    <div class="formbutton">
-        <button on:click={login}>LogIn</button>
-    </div>
-    </div>
-</div>
+    <body>
+        <div class="center">
+            <div class="padding-20">
+            <table>
+                <tr>
+                    <!--<td><label for="username">Username</label></td>-->
+                    <td><input placeholder="Username" type="text" bind:value={usertype} id="username" ></td>
+                </tr>
+                <tr>
+                    <!--<td><label for="password">Password</label></td>-->
+                    <td><input placeholder="Password" type="password" id="password"></td>
+                </tr>
+            </table>
+            <p class="hidden" id="hidden">Invalid Credentials</p>
+            <div class="formbutton">
+                <button on:click={login}>LogIn</button>
+            </div>
+            </div>
+        </div>
+    </body>
 </main>
-
+<footer></footer>
 <style>
 .center{
     position:relative;

@@ -32,6 +32,9 @@
     </main>
 </section>
 <style>
+.center{
+    margin-top: 5vh;
+}
 .grid{
     display:grid;
     grid-template-columns: auto auto;

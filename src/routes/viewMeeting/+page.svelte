@@ -79,31 +79,30 @@
 <section>
     <main>
         <head>
-            <link rel="stylesheet" href="/src/routes/style.css">
             <meta name="viewport" content="width=device-width, initial-scale-1">
         </head>
         <div class="center">
             <div class="supervisor">
                 <!--Supervisors information-->
                 <label for="supervisorname" id="namelabel" class="supervisorlabel">Student Name: </label>
-                <input type="text" placeholder="John Smith" id="supervisorname" class="supervisorinput"/>
+                <input type="text" placeholder="John Smith" id="nameinput" class="supervisorinput"/>
             </div>
             <div class="datetime">
                 <!--Date & Time-->
                 <div class="grid-item">
                     <label for="meetingdate" id="datelabel" class="datelabel">Date: </label>
-                    <input type="date" placeholder="DD/MM/YYYY" id="meetingdate" class="dateinput"/>
+                    <input type="date" placeholder="DD/MM/YYYY" id="dateinput" class="dateinput"/>
                 </div>
                 <div class="grid-item">
                     <label for="meetingtime" id="timelabel" class="timelabel">Time: </label>
-                    <input type="time" placeholder="HH:MM" id="meetingtime" class="timeinput"/>
+                    <input type="time" placeholder="HH:MM" id="timeinput" class="timeinput"/>
                 </div>
             </div>
             <div class="details">
                 <label for="meetingpurpose" id="purposelabel" class="purposelabel">Purpose of Meeting</label>
                 <textarea id="meetingpurpose" class="purposeinput"/><br>
                 <label for="addintionalnotes" id="noteslabel" class="noteslabel">Additional Notes</label>
-                <textarea id="additionalnotes" class="notesinput"/>
+                <textarea id="notes" class="notesinput"/>
             </div>
             <div class="buttons">
                 <button class="cancel" on:click={cancel}>Cancel</button>

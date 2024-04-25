@@ -20,20 +20,26 @@ button:hover{
     cursor: pointer;
 }
 main{
-    background-image: url("/Boarder.png");
-    background-repeat: no-repeat;
-    background-position: left top;
+    background-image: url("/VectorSmall.svg");
     background-size: cover;
-    height: 100%;
-    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
 }
+/*.image{
+    background-image: url("/VectorSmall.svg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}*/
 body{
     margin:0;
 }
 
-div.center {
+.center {
     height: 100vh;
     width:  100vw;
-
+    margin: 0;
     padding: 0;
 }

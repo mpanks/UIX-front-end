@@ -60,7 +60,6 @@
 
     
     <head>
-        <link rel="stylesheet" href="src/routes/style.css"/>
     </head>
     <div class="center">
         <div class="name">
@@ -135,6 +134,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 3vh;
 }
 .name, .datetime, .date, .time, .buttons,.confidence{
     display: flex;
@@ -204,6 +204,12 @@ button:hover{
     width: 347px;
     height: 137px;
 }
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .confidencelabel{
     max-height: 82px;
     margin-top: 1%;
@@ -232,6 +238,7 @@ button:hover{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 3vh;
 }
 .noteslabel{
     font-size: 54px;
@@ -252,6 +259,7 @@ button:hover{
     background-color: #C3BEF7;
     border: 0px;
     border-radius: 0px 0px 5px 5px;
+    margin-bottom: 3vh;
 }
 textarea{
     resize: none;

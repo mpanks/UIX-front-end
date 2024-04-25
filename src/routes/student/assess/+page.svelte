@@ -12,11 +12,14 @@
         let content = document.getElementById("modalText") as HTMLElement;
 
         if(confLevel <=5 && confLevel >0 && confLevel%1==0){
-            if(content) content.textContent = "Report Submitted";
+            if(content) content.textContent = "Report Submitted"; content.style.setProperty("color","green");
             submitted=true;
         }
         else{
-            if(content) content.textContent="Report Rejected.\nPlease add a confidence level between 1 and 5.";
+            if(content){
+                content.innerHTML="Report Rejected.<br>Please add a confidence level between 1 and 5.";
+                content.style.setProperty("color","red");
+            } 
             //if(modal) modal.textContent = "reject";
         }
         //modal?.appendChild(content);
